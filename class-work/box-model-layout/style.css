@@ -1,0 +1,29 @@
+#body {
+  text-align: center;
+  /*width: 0
+  margin: auto;
+  padding-top;
+  padding-bottom:*/
+  border-style: solid;
+  border-top;
+  border-bottom;
+  border-right;
+  border:left;
+}
+#nav {
+  text-align: center;
+  background-color: black;
+}
+#one{
+  border-style: solid;
+  background-color: orange;
+  text-color: purple;
+}
+#two{
+  border-style: solid;
+  background-color: orange;
+}
+#three{
+  border-style: solid;
+  background-color: orange;
+}
