@@ -1,0 +1,38 @@
+.container{
+font-family: Lato;
+/*width: 500px;*/
+padding: 54px;
+border: solid 6px #dddddd;
+line-height: 1.5;
+font-weight: 200px;
+}
+
+h1 {
+  font-family: Lato;
+  font-weight: 700;
+  color:red;
+  width: 720px;
+}
+h2 {
+  color: black;
+  font-weight: 400;
+  width: 720px;
+}
+
+nav a {
+  /*text-decoration: none;*/
+  color:#dddddd;
+}
+
+time{
+  color: #dddddd;
+}
+
+article{
+  color: gray;
+  font-weight: 200;
+}
+footer a{
+  /*text-decoration: none;*/
+  color: #dddddd;
+}
