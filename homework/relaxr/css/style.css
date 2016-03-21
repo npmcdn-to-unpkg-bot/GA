@@ -2,6 +2,22 @@
 /* SETUP
 /*******************************************/
 
+
+h1{
+  font-weight: 800;
+}
+
+
+nav {
+  background-color: black;
+}
+nav a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+
 /* Clear fix hack */
 .clearfix:after {
   content: ".";
