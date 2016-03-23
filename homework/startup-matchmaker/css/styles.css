@@ -62,19 +62,11 @@ body {
   opacity: .75;
   border: 1px solid #000000;
   text-align: left;
-
-
-
 }
 
-#profileBox {
-  display: block;
-}
+.profileBoxContainer {
+  display: flex;
 
-#developerBox{
-
-}
-
-#designerBox{
-
+footer {
+  background-color: black;
 }
