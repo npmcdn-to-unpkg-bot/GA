@@ -29,3 +29,13 @@ var total = 0;
     total = total + 10;
     $('#out').html(total);
   });
+
+  $('#a10').click(function(){
+    total = total + 20;
+    $('#out').html(total);
+  });
+
+  $('#a10').click(function(){
+    total = total + 30;
+    $('#out').html(total);
+  });
