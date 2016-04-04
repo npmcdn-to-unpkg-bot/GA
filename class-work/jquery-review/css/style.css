@@ -1,0 +1,12 @@
+.box {
+  height: 200px;
+  width: 200px;
+}
+
+#box-one {
+  color: red;
+}
+
+#box-two {
+  color: blue;
+}
