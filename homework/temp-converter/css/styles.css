@@ -1,0 +1,35 @@
+body {
+height: 100%;
+width: 100%;
+margin: 0;
+padding: 0;
+color: black;
+}
+
+h1{
+
+}
+
+.celc {
+  background-color: #00FFEF;
+  height: 300px;
+  width:250px;
+  display: inline-block;
+}
+
+.fahren {
+  background-color: #067F78;
+  height: 300px;
+  width: 250px;
+  display: inline-block;
+}
+
+#c {
+  margin-bottom: 20px;
+}
+#f {
+  margin-bottom: 20px;
+}
+
+
+
