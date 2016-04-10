@@ -9,3 +9,6 @@ function convertTemp() {
  }
 }
 
+// if ("f" < 60) {
+//     $(".fahren").css({"background-color":#067F78 "color: red;"})
+// }
