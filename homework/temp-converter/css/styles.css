@@ -1,26 +1,30 @@
+/*@import url(https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet')*/
+
+
 body {
 height: 100%;
 width: 100%;
 margin: 0;
-padding: 0;
+padding: 0px;
 color: black;
 }
 
 h1{
-
+  font-family: courier;
+  color:#004036;
 }
 
 .celc {
   background-color: #00FFEF;
-  height: 300px;
-  width:250px;
+  height: 200px;
+  width:200px;
   display: inline-block;
 }
 
 .fahren {
   background-color: #067F78;
-  height: 300px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   display: inline-block;
 }
 
