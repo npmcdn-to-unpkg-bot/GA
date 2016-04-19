@@ -1,5 +1,5 @@
 .container {
-	width: 960px;
+	width: 85%;
 	margin: 0 auto;
 }
 
@@ -39,7 +39,7 @@ article {
 	padding: 10px;
 	box-sizing: border-box;
 	float: left;
-	width: 465px;
+	width: 49%;
 }
 
 /* targets the 1st article; nth-child(2) would target the 2nd article*/
@@ -51,4 +51,11 @@ article h1 {
 	font-size: 20px;
 	text-align: center;
 	padding: 5px 0;
+}
+
+@media (max-width: 480px) {
+	article {
+		float: none;
+		width 100%;
+	}
 }
