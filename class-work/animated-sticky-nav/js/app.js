@@ -7,7 +7,7 @@ $(window).scroll(function ()) {
   if (scrollTop > 20) {
     $('header').css('background', 'red')
   }
-  else{
+  else {
     $('header').css('background', 'blue')
   }
 })
