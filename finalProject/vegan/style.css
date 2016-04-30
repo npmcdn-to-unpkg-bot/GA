@@ -1,0 +1,54 @@
+.container {
+  text-align: center;
+}
+
+/*.navigation {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}*/
+
+header {
+  background: #333;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+
+}
+
+header a:hover {
+  color: #46f0ec;
+}
+
+navContainer {
+
+}
+
+h1 {
+  text-align: left;
+  margin-left: 10px;
+}
+
+
+body{
+  margin-top:50px;
+}
+
+
+
+.scrolled {
+  background: red;
+  font-size: 30px;
+  color: white;
+}
