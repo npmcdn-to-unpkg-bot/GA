@@ -6,6 +6,7 @@
 .container {
   text-align: center;
   padding-top: 50px;
+   font-family: "ABeeZee", sans-serif;
 }
 
 /*.navigation {
@@ -51,9 +52,23 @@ h1 {
 .button {
  margin: 20px;
 }
-
-
-
+.boxed {
+  width: 100%;
+  width: 900px;
+  background-color: #FDFDFD;
+  padding: 40px;
+  border: 10px solid black;
+  border-width: thin;
+  margin: 60px auto;
+  box-shadow: 0 0 1em #c7c0c0;
+}
+/*display: none;
+  width: 100%;
+  background-color: #FDFDFD;
+  width: 900px;
+  margin: 60px auto;
+  padding:40px;
+  box-shadow: 0 0 1em #c7c0c0;*/
 
 .scrolled {
   background: red;
