@@ -45,8 +45,8 @@ h1 {
 }
 
 .form {
-  margin: 200px;
-  height:200px;
+  margin: 100px;
+  height:100px;
   font-size:20pt;
 }
 .button {
@@ -57,8 +57,6 @@ h1 {
   width: 900px;
   background-color: #FDFDFD;
   padding: 40px;
-  border: 10px solid black;
-  border-width: thin;
   margin: 60px auto;
   box-shadow: 0 0 1em #c7c0c0;
 }
