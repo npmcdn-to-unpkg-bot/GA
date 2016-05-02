@@ -36,7 +36,7 @@ header a {
 }
 
 header a:hover {
-  color: #46f0ec;
+  color: #95e195;;
 }
 
 h1 {
@@ -97,6 +97,33 @@ h1 {
   background: purple;
 }
 
-.content {
+.pageTitle{
   text-align: center;
+  font-size: 50px;
+  font-family: "ABeeZee", sans-serif;
+  line-height: 36px;
+  text-transform: uppercase;
+  padding-top: 60px;
+
 }
+.content {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16px;
+  width: 800px;
+  padding: 40px 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.paragraph {
+   font-family: "ABeeZee", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    width: 800px;
+    padding: 10px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
