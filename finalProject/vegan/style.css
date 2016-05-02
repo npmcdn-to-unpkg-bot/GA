@@ -82,19 +82,29 @@ h1 {
   text-align: center;
 }
 
+#section0 {
+  height:800px;
+  background-image: url("img/skyline.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 10%;
+/*  padding-bottom: 50%;
+  margin: 0 auto;*/
+}
 #section1 {
-  height:1000px;
+  height:400px;
   background: #95e195;
 }
 
 #section2 {
   height:1000px;
-  background: red;
+  background: #E0E0E0;
 }
 
 #section3 {
   height:1000px;
-  background: purple;
+  background: #95e195;
 }
 
 .pageTitle{
