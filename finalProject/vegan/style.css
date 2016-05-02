@@ -81,3 +81,22 @@ h1 {
 h1 {
   text-align: center;
 }
+
+#section1 {
+  height:1000px;
+  background: #95e195;
+}
+
+#section2 {
+  height:1000px;
+  background: red;
+}
+
+#section3 {
+  height:1000px;
+  background: purple;
+}
+
+.content {
+  text-align: center;
+}
