@@ -95,6 +95,15 @@ h1 {
   background: #E0E0E0;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 100%;
+}
+
 #section3 {
   height:1000px;
   background: #95e195;
