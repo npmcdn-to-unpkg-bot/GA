@@ -8,9 +8,16 @@ $(document).ready(function() {
    }
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.730610, lng: -73.935242},
+          center: {lat: 40.7127, lng: -74.0059},
           zoom: 12
         });
+
+      var marker = new google.maps.Marker({
+        position: {lat: 40.7127, lng: -74.0059},
+        map: map,
+        title: 'New York, NY'
+  });
+
       }
 
 initMap();
