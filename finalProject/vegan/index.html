@@ -9,10 +9,11 @@
 <body>
 
 <div class="container">
-<div id="section0">
+
+  <div id="section0">
   <header>
     <h1>Basil</h1>
-    <div class="navContainer">
+  <div class="navContainer">
     <a href="#home">Home</a>
     <a href="#About">About</a>
     <a href="#Map">Map</a>
@@ -20,19 +21,11 @@
   </div>
   </header>
 
+<h2>Basil</h2>
+
 <div class="boxed" id="home">
 
-  <div class="form">
-    <form action="/my-handling-form-page" method="post">
-        <div>
-            <label for="Address">Address:</label>
-            <input type="text" size="60" id="address" />
-        </div>
-        <div class="button">
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-  </div>
+
 
 </div>
 </div>
@@ -41,8 +34,8 @@
 <!-- Section 1 -About- -->
 
 
-<div id="section1">
-  <a id="About"></a>
+<div id="section1" id="About">
+  <!-- <a id="About"></a> -->
     <div class="pageTitle">About</div>
       <div class= "content">
           <div class="paragraph"></div>
@@ -59,8 +52,8 @@
 <!-- Section 2 -Map- -->
 
 <div id="section2">
-  <h1> Map </h1>
-  <a id="Map"></a>
+  <div class="pageTitle">Map</div>
+  <a id="#Map"></a>
 
 
 </div>
@@ -68,11 +61,39 @@
 <!-- Section 3 -Contact- -->
 
 <div id="section3">
-  <h1> Contact </h1>
+  <div class="pageTitle">Contact</div>
   <a id="Contact"></a>
 
+<!-- Contact form-->
+<!--
+ <form action="/my-handling-form-page" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <label for="mail">E-mail:</label>
+        <input type="email" id="mail" />
+    </div>
+    <div>
+        <label for="msg">Message:</label>
+        <textarea id="msg"></textarea>
+    </div>
+
+    <div class="button">
+        <button type="submit">Send your message</button>
+    </div>
+</form> -->
+
+
 </div>
+
 </div>
+
+
+
+
+<!-- JS Scripts -->
 
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
