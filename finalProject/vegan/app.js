@@ -16,19 +16,21 @@ var infowindow;
 var search_results = [];
 
 function initMap() {
-  var pyrmont = {lat: 40.7127 , lng: -74.0059};
+  var location = {lat: 40.7127 , lng: -74.0059};
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: pyrmont,
-    zoom: 15
+    center: location,
+    zoom: 15,
+    zoomControl: true
   });
 
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
-    location: pyrmont,
-    radius: 500,
-    type: ['restaurant']
+    location: location,
+    radius: 1000,
+    type: ['restaurant'],
+    keyword: 'vegetarian'
   }, callback);
 }
 
@@ -43,13 +45,18 @@ function callback(results, status) {
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
+
+
+
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    var placeRating = place.rating;
+    var windowStyle = "" + place.name + "<br>" + place.vicinity + "<br>" + placeRating + "";
+    infowindow.setContent(windowStyle);
     infowindow.open(map, this);
   });
 }
