@@ -34,9 +34,14 @@ h1 {
   margin-left: 15px;
 }
 #section1 {
-  height:1000px;
-  background: #FFFFFF;
+  height:800px;
+  background-image: url("imgs/taxi.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  /*padding-top: 10%;*/
 }
+
 #section2 {
   height:1000px;
   background: #958903;
