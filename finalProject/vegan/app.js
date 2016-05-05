@@ -15,16 +15,29 @@ var map;
 var infowindow;
 var search_results = [];
 
+$('#address_form').on('submit', function(e){
+  e.preventDefault();
+  var input_value = $('#input_value').val();
+
+})
+
 function initMap() {
   var location = {lat: 40.7127 , lng: -74.0059};
-
   map = new google.maps.Map(document.getElementById('map'), {
     center: location,
     zoom: 15,
-    zoomControl: true
+    scrollwheel: false
+  });
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
+
+  $('#address_form').on('submit', function(e){
+    e.preventDefault();
+    geocodeAddress(geocoder, map);
+
   });
 
-  infowindow = new google.maps.InfoWindow();
+
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: location,
@@ -60,6 +73,21 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('input_value').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
 
 
 
