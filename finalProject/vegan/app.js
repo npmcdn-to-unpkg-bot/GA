@@ -1,9 +1,10 @@
-
 $(document).ready(function() {
-
+var win = $(window);
 var map;
 var infowindow;
 var geocoder;
+var map_win_height = win.height();
+setMapWinHeight(map_win_height)
 initMap();
 console.log("//geocoder within the global is:")
 console.log(geocoder);
@@ -14,14 +15,24 @@ $('#address_form').on('submit', function(e){
   console.log(geocoder);
   geocodeAddress(geocoder, map);
 });
-$('.smooth').on('click', function() {
-    $.smoothScroll({
-        scrollElement: $('body'),
-        scrollTarget: '#' + this.id
-    });
-    return false;
+
+$("#mapScroll").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#map_wrapper").offset().top
+    }, 2000);
 });
 
+// $('.smooth').on('click', function() {
+//     $.smoothScroll({
+//         scrollElement: $('body'),
+//         scrollTarget: '#' + this.id
+//     });
+//     return false;
+// });
+function setMapWinHeight (setHeight){
+  var heightString = setHeight.toString()
+  $('#section2').css('height', heightString );
+};
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('input_value').value;
   geocoder.geocode({'address': address}, function(results, status) {// geocode makes a http request and returns the values. The values are passed as arguments through a "call back" function.
