@@ -103,6 +103,7 @@ html, body {
 #map {
   height: 80vh;
   width: 80vw;
+  margin: 0 auto;
 }
 
 #section3 {
@@ -140,7 +141,7 @@ html, body {
 
 /*<!-- Contact form-->*/
 
-/*form {
+form {
     margin: 0 auto;
     width: 400px;
     padding: 1em;
@@ -186,4 +187,21 @@ textarea {
 }
 button {
     margin-left: .5em;
-}*/
+}
+/*new code to add*/
+#About {
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+.link_wrapper{
+  height: 50px;
+  width: 100%;
+}
+.relative {
+position: relative;
+}
+header {
+  z-index: 1;
+}
