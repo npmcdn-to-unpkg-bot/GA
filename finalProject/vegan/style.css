@@ -33,15 +33,12 @@ header a:hover {
   color: #4dbd4d;
 }
 #mainContent {
-  border: 1px solid blue;
   width: 100vw;
   height: 100vh;
   display: flex;
 }
 #plannerBox {
   width: 350px;
-
-
 }
 #inputBox {
   padding: 20px;
@@ -81,7 +78,6 @@ header a:hover {
 
 #detailBox {
   background-color: #efefef;
-  height: 200px;
 
 }
 
@@ -89,8 +85,23 @@ header a:hover {
   width: 100%;
 
 }
-#mapBox {
-border: 1px solid green;
+#detailBox .title {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px 0 5px 0;
+  color: #4dbd4d;
+}
+#detailBox .address {
+  font-style: italic;
+  font-size: 14px;
+  padding: 5px 0;
+
+}
+#detailBox .rating {
+  font-size: 15px;
+}
+#map {
+
 }
 h1 {
   text-align: left;
@@ -105,31 +116,13 @@ h2{
   padding-top: 5%
 
 }
-.boxed {
-  height: 40vw;
-  width: 60vh;
-  background-color: #FDFDFD;
-  padding: 40px;
-  margin: 60px auto;
-  box-shadow: 0 0 1em #c7c0c0;
-  display:
-}
-/*width: 100%;
-  width: 900px;
-  background-color: #FDFDFD;
-  padding: 40px;
-  margin: 60px auto;
-  box-shadow: 0 0 1em #c7c0c0;*/
-
 .scrolled {
   background: red;
   font-size: 30px;
   color: white;
 }
 
-.section {
-  height: 1000px;
-}
+
 
 h1 {
   text-align: center;
@@ -145,7 +138,7 @@ h1 {
 /*  padding-bottom: 50%;
   margin: 0 auto;*/
 }
-#section1 {
+/*#section1 {
   height:400px;
   background: #95e195;
 }
@@ -154,7 +147,7 @@ h1 {
   height:1000px;
   background: #E0E0E0;
 }
-
+*/
 html, body {
   height: 100%;
   margin: 0;

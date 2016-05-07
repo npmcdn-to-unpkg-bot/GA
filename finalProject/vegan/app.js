@@ -96,4 +96,6 @@ function initMap() {
   service = new google.maps.places.PlacesService(map);
 };
 
+function populateDetailBox(image, title, address, rating)
+
 });//closing tag.
