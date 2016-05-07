@@ -7,6 +7,7 @@
   text-align: center;
   padding-top: 50px;
   font-family: "ABeeZee", sans-serif;
+  font-size: 16px;
 }
 
 header {
@@ -29,9 +30,68 @@ header a {
 }
 
 header a:hover {
-  color: #95e195;;
+  color: #4dbd4d;
+}
+#mainContent {
+  border: 1px solid blue;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+#plannerBox {
+  width: 350px;
+
+
+}
+#inputBox {
+  padding: 20px;
+  box-sizing: border-box;
+}
+#inputBox label {
+  margin: 10px 0 0 0;
+  color: #cccccc;
+  text-align: left;
+  width: 100%;
+  display: block;
+}
+#inputBox input {
+  padding: 9px;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  font-size: 16px;
+  width: 100%;
+  margin: 10px 0;
+}
+#inputBox button {
+  background-color: #4dbd4d;
+  padding: 15px 30px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 150ms;
 }
 
+#inputBox button:hover {
+  background-color: #2d8f2d;
+}
+
+#detailBox {
+  background-color: #efefef;
+  height: 200px;
+
+}
+
+#detailBox img {
+  width: 100%;
+
+}
+#mapBox {
+border: 1px solid green;
+}
 h1 {
   text-align: left;
   margin-left: 15px;
@@ -136,46 +196,6 @@ html, body {
 
 /*<!-- Contact form-->*/
 
-form {
-    margin: 0 auto;
-    width: 400px;
-    padding: 1em;
-    border: 5px solid #CCC;
-    border-radius: 1em;
-}
-form div + div {
-    margin-top: 1em;
-}
-
-input, textarea {
-    /* To make sure that all text fields have the same font settings
-       By default, textareas have a monospace font */
-    font: 1em sans-serif;
-
-    /* To give the same size to all text field */
-    width: 300px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-    /* To harmonize the look & feel of text field border */
-    border: 1px solid #999;
-}
-
-input:focus, textarea:focus {
-    /* To give a little highlight on active elements */
-    border-color: #000;
-}
-textarea {
-    /* To properly align multiline text fields with their labels */
-    vertical-align: top;
-
-    /* To give enough room to type some text */
-    height: 5em;
-
-    /* To allow users to resize any textarea vertically
-       It does not work on all browsers */
-    resize: vertical;
-}
 .button {
     /* To position the buttons to the same position of the text fields */
     padding-left: 90px; /* same size as the label elements */
