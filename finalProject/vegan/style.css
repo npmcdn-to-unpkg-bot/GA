@@ -46,19 +46,19 @@ h2{
 
 }
 .boxed {
-  width: 100%;
-  width: 900px;
+  height: 40vw;
+  width: 60vh;
   background-color: #FDFDFD;
   padding: 40px;
   margin: 60px auto;
   box-shadow: 0 0 1em #c7c0c0;
+  display:
 }
-/*display: none;
-  width: 100%;
-  background-color: #FDFDFD;
+/*width: 100%;
   width: 900px;
+  background-color: #FDFDFD;
+  padding: 40px;
   margin: 60px auto;
-  padding:40px;
   box-shadow: 0 0 1em #c7c0c0;*/
 
 .scrolled {
@@ -104,11 +104,6 @@ html, body {
   height: 80%;
   width: 80%;
   margin: 0 auto;
-}
-
-#section3 {
-  height:1000px;
-  background: #95e195;
 }
 
 .pageTitle{
