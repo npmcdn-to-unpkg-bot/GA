@@ -5,23 +5,29 @@
 
 .container {
   text-align: center;
-  padding-top: 50px;
-  font-family: "ABeeZee", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 header {
   background: #333;
-  position: fixed;
   width: 100%;
-  top: 0;
-  left: 0;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+header h1 {
+  text-align: left;
+  padding: 8px 20px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+}
 header a {
     display: inline-block;
     color: white;
@@ -34,39 +40,37 @@ header a:hover {
 }
 #mainContent {
   width: 100vw;
-  height: 100vh;
   display: flex;
+  flex-grow: 2;
 }
 #plannerBox {
   width: 350px;
+  overflow-y: scroll;
+  background-color: #efefef;
 }
 #inputBox {
   padding: 20px;
   box-sizing: border-box;
-}
-#inputBox label {
-  margin: 10px 0 0 0;
-  color: #cccccc;
-  text-align: left;
-  width: 100%;
-  display: block;
+  background-color: #ffffff;
 }
 #inputBox input {
   padding: 9px;
   border: none;
   border-bottom: 1px solid #cccccc;
   font-size: 16px;
+  font-weight: 300;
   width: 100%;
   margin: 10px 0;
 }
 #inputBox button {
   background-color: #4dbd4d;
   padding: 15px 30px;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   border: none;
   border-radius: 3px;
   color: #ffffff;
   font-size: 16px;
+  font-weight: 300;
   width: 100%;
   cursor: pointer;
   transition: background-color 150ms;
@@ -77,139 +81,30 @@ header a:hover {
 }
 
 #detailBox {
-  background-color: #efefef;
-
+  padding-bottom: 25px;
 }
-
 #detailBox img {
   width: 100%;
-
 }
 #detailBox .title {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 18px;
-  padding: 15px 0 5px 0;
+  padding: 15px 20px 5px 20px;
   color: #4dbd4d;
 }
 #detailBox .address {
   font-style: italic;
   font-size: 14px;
-  padding: 5px 0;
+  padding: 5px 20px;
 
 }
 #detailBox .rating {
   font-size: 15px;
+  padding: 5px 20px;
 }
 #map {
-
-}
-h1 {
-  text-align: left;
-  margin-left: 15px;
-}
-
-h2{
-  letter-spacing: .2em;
-  font-size: 84px;
-  font-weight: 200;
-  margin-top: -4%;
-  padding-top: 5%
-
-}
-.scrolled {
-  background: red;
-  font-size: 30px;
-  color: white;
-}
-
-
-
-h1 {
-  text-align: center;
-}
-
-#section0 {
-  height:800px;
-  background-image:;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  padding-top: 10%;
-/*  padding-bottom: 50%;
-  margin: 0 auto;*/
-}
-/*#section1 {
-  height:400px;
-  background: #95e195;
-}
-
-#section2 {
-  height:1000px;
-  background: #E0E0E0;
-}
-*/
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-#map {
-  height: 80%;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.pageTitle{
-  text-align: center;
-  font-size: 50px;
-  font-family: "ABeeZee", sans-serif;
-  line-height: 36px;
-  text-transform: uppercase;
-  padding-top: 60px;
-
-}
-.content {
-  font-family: "ABeeZee", sans-serif;
-  font-size: 16px;
-  width: 800px;
-  padding: 40px 0;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-}
-.paragraph {
-   font-family: "ABeeZee", sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    width: 800px;
-    padding: 10px 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/*<!-- Contact form-->*/
-
-.button {
-    /* To position the buttons to the same position of the text fields */
-    padding-left: 90px; /* same size as the label elements */
-}
-button {
-    margin-left: .5em;
-}
-/*new code to add*/
-#About {
-  height: 50px;
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-}
-.link_wrapper{
-  height: 50px;
   width: 100%;
 }
-.relative {
-position: relative;
-}
-header {
-  z-index: 1;
-}
+
+
+
