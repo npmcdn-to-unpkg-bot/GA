@@ -1,5 +1,4 @@
-
-
+// Declare variables
 var win = $(window);
 var map;
 var infowindow;
@@ -7,6 +6,7 @@ var geocoder;
 var markers = [];
 var service;
 
+//creates a new static map. Centers the map on your location input. Scrollwheel false allows you to scroll over the map without changing the zoom/location.
 function initMap() {
   geocoder = new google.maps.Geocoder;
   var location = {lat: 40.7127 , lng: -74.0059};
@@ -18,48 +18,48 @@ function initMap() {
   service = new google.maps.places.PlacesService(map);
 };
 
-//creates a newstatic map. Centers the map on your location input. Scrollwheel false allows you to scroll over the map without changing the zoom/location.
-function geocodeAddress(geocoder, resultsMap) {
 
-  var address = document.getElementById('input_value').value;
+function geocodeAddress() {
 
-  geocoder.geocode(
-    {'address': address},
-    function(results, status) {
+  var address = $('#input_value').val();
+  var request = {
+    address: address
+  };
 
-    //console.log("//results are:");
-    //console.log(results);
+  geocoder.geocode(request, updateMap);
 
-    if (status === google.maps.GeocoderStatus.OK) {
-      resultsMap.setCenter(results[0].geometry.location);
-      //console.log("//service before nearbySearch:");
-      //console.log(service);
+}
 
-      var request = {
-          location: results[0].geometry.location,
-          radius: 1000,
-          type: ['restaurant'],
-          keyword: 'vegan' };
+function updateMap(results, status) {
 
-      service.nearbySearch(request, showLocations);
+  if (status === google.maps.GeocoderStatus.OK) {
+    map.setCenter(results[0].geometry.location);
 
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    };
-  });
-};
+    var request = {
+        location: results[0].geometry.location,
+        radius: 1000,
+        type: ['restaurant'],
+        keyword: 'vegan' };
+
+    service.nearbySearch(request, showLocations);
+
+  } else {
+    alert('Geocode was not successful for the following reason: ' + status);
+  }
+
+}
 
 function showLocations(results, status) {
 
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-      //console.log(results[i]);
       createMarker(results[i]);
     }
   }
 
 };
 
+//if places are rendering, keep iterating through the array and place marker at location.
 function createMarker(place) {
 
   var marker = new google.maps.Marker({
@@ -82,14 +82,10 @@ function createMarker(place) {
       placeId: place.place_id
     }
 
-
-
     service.getDetails(request, populateDetailBox);
+
   });
 };
-
-
-
 
 
 function populateDetailBox(place, status) {
@@ -123,9 +119,7 @@ $(document).ready(function() {
 
   $('#address_form').on('submit', function(e){
     e.preventDefault();
-    //console.log("//geocoder within on submit is:")
-    //console.log(geocoder);
-    geocodeAddress(geocoder, map);
+    geocodeAddress();
   });
 
   $('#navAbout').click(initAbout);
