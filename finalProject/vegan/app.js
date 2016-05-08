@@ -5,6 +5,7 @@ var map;
 var infowindow;
 var geocoder;
 var markers = [];
+var service;
 
 function initMap() {
   geocoder = new google.maps.Geocoder;
@@ -17,6 +18,7 @@ function initMap() {
   service = new google.maps.places.PlacesService(map);
 };
 
+//creates a newstatic map. Centers the map on your location input. Scrollwheel false allows you to scroll over the map without changing the zoom/location.
 function geocodeAddress(geocoder, resultsMap) {
 
   var address = document.getElementById('input_value').value;
@@ -32,12 +34,15 @@ function geocodeAddress(geocoder, resultsMap) {
       resultsMap.setCenter(results[0].geometry.location);
       //console.log("//service before nearbySearch:");
       //console.log(service);
-      service.nearbySearch({
+
+      var request = {
           location: results[0].geometry.location,
           radius: 1000,
           type: ['restaurant'],
-          keyword: 'vegan'
-        }, showLocations);
+          keyword: 'vegan' };
+
+      service.nearbySearch(request, showLocations);
+
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     };
@@ -72,7 +77,14 @@ function createMarker(place) {
     }
 
     marker.setIcon('img/map_icon_selected.png');
-    populateDetailBox(null, place.name, place.vicinity, place.rating);
+
+    var request = {
+      placeId: place.place_id
+    }
+
+
+
+    service.getDetails(request, populateDetailBox);
   });
 };
 
@@ -80,12 +92,25 @@ function createMarker(place) {
 
 
 
-function populateDetailBox(image, title, address, rating) {
-  $('#detailBox .title').html(title);
-  $('#detailBox .address').html(address);
-  $('#detailBox .rating').html(generateRating(rating));
-}
+function populateDetailBox(place, status) {
 
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    var imageSrc = "img/restaurant.jpeg";
+
+    if (place.photos !==undefined) {
+      imageSrc=place.photos[0].getUrl( { maxWidth: 350 } );
+    }
+
+    $('#detailBox .image').attr('src', imageSrc);
+
+    $('#detailBox .title').html(place.name);
+    $('#detailBox .address').html(place.vicinity);
+    $('#detailBox .rating').html(generateRating(place.rating));
+  }
+  else {
+    alert('Request Unsuccessful. Status: '+ status);
+  }
+}
 
 $(document).ready(function() {
   //var map_win_height = win.height();
