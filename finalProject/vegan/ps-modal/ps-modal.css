@@ -1,0 +1,174 @@
+/*
+ *
+ *  Programmer: Paul Staff
+ *  Created: 2014.05.16
+ *  Edited: 2016.03.19
+ *
+ *  Copyright (c) 2014-2016, nplexity, LLC.  All Rights Reserved.
+ *  www.nplexity.com
+ *
+ *  ps-modal.css
+ *
+ *
+ *  This is the CSS stylesheet for ps-modal modal windows.
+ *
+ *  To customize the modal elements, edit the custom style sections of the
+ *  style blocks below.
+ *
+ *  DO NOT EDIT the sections titled 'Required Styles', as these are
+ *  necessary to properly display the modal window.
+ *
+ *
+ */
+
+/* ------------------------------------------------------------------ */
+/*   PS Modal CSS Styles                                              */
+/* ------------------------------------------------------------------ */
+
+#ps-modal-back {
+
+    /* Required Styles */
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1999;
+
+    /* Add Custom Styles Here */
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+
+}
+
+#ps-modal-window {
+
+    /* Required Styles */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+
+    /* Add Custom Styles Here */
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.50);
+
+}
+
+#ps-modal-header {
+
+    /* Required Styles */
+    position: relative;
+
+    /* Add Custom Styles Here */
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-bottom: 1px solid #CCCCCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 15px 20px 12px;
+
+}
+
+#ps-modal-header-title, #ps-modal-header-close {
+
+    /* Required Styles */
+    font-size: 16px;
+    line-height: 24px;
+
+    /* Add Custom Styles Here */
+
+}
+
+#ps-modal-header-title {
+
+    /* Add Custom Styles Here */
+    font-weight: bold;
+
+}
+
+#ps-modal-header-close {
+
+    /* Required Styles */
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+
+    /* Add Custom Styles Here */
+    color: #000000;
+
+}
+
+#ps-modal-header-close:hover {
+
+    /* Add Custom Styles Here */
+    color: #C62626;
+
+}
+
+#ps-modal-body {
+
+    /* Required Styles */
+    overflow-y: scroll;
+    max-height: 85vh;
+
+    /* Add Custom Styles Here */
+    padding: 10px 20px;
+
+}
+
+.ps-modal-item {
+
+    /* Add Custom Styles Here */
+    margin: 10px 0;
+
+}
+
+#ps-modal-footer {
+
+    /* Add Custom Styles Here */
+    margin-top: 25px;
+    border-top: 1px solid #CCCCCC;
+    padding: 18px 0 8px 0;
+
+}
+
+
+/* ------------------------------------------------------------------ */
+/*   DO NOT EDIT - Required for fade in/out                           */
+/* ------------------------------------------------------------------ */
+
+
+.ps-modal-fade-in {
+    animation-duration: .25s;
+    animation-fill-mode: forwards;
+    animation-name: ps-modal-fade-in;
+}
+
+@keyframes ps-modal-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.ps-modal-fade-out {
+    animation-duration: .25s;
+    animation-fill-mode: forwards;
+    animation-name: ps-modal-fade-out;
+}
+
+@keyframes ps-modal-fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

@@ -36,7 +36,7 @@ function geocodeAddress(geocoder, resultsMap) {
           location: results[0].geometry.location,
           radius: 1000,
           type: ['restaurant'],
-          keyword: 'vegetarian'
+          keyword: 'vegan'
         }, showLocations);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
@@ -83,7 +83,7 @@ function createMarker(place) {
 function populateDetailBox(image, title, address, rating) {
   $('#detailBox .title').html(title);
   $('#detailBox .address').html(address);
-  $('#detailBox .rating').html(rating);
+  $('#detailBox .rating').html(generateRating(rating));
 }
 
 
@@ -103,5 +103,77 @@ $(document).ready(function() {
     geocodeAddress(geocoder, map);
   });
 
+  $('#navAbout').click(initAbout);
+  $('#navContact').click(initContact);
+
+
 });//closing tag.
 
+function initAbout() {
+  var options = psModal.getStandardOptions();
+
+  options.header = false;
+  options.closeModalBack = true;
+  options.width = '55vw';
+
+  options.content = '';
+  options.content += '<div class="modal">';
+  options.content += '  <div class="title">About</div>';
+  options.content += '  <div class="content">Welcome to Basil! We are here to serve as your resource to vegan and vegetarian friendly restaurants wherever you are. The Basil community is full of people who are passionate about the vegan/vegetarian lifestyle as a healthy and environmentally sustainable way of living.</div>';
+  options.content += '  <div class="content">Simply enter the address you are at and the map will show you vegan/vegetarian restaurants in your area. Yes, it\'s that simple.</div>';
+  options.content += '  <div class="content"><div class="button">Close</div></div>';
+  options.content += '</div>';
+
+  var callback = function() {
+    document.querySelector('.modal .button').addEventListener('click', function() {
+      psModal.close();
+    });
+  };
+
+  psModal.open(options, callback);
+}
+function initContact() {
+  var options = psModal.getStandardOptions();
+
+  options.header = false;
+  options.closeModalBack = true;
+
+  options.content = '';
+  options.content += '<div class="modal">';
+  options.content += '  <div class="title">Contact</div>';
+  options.content += '  <div class="content">Feel free to check us out or drop me a line below:</div>';
+  options.content += '  <div class="content"><a href="https://github.com/SusanSavariar"><i class="fa fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/susansavariar"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a><a href="https://www.instagram.com/ssavariar/"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="mailto:sasavariar@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></div>';
+  options.content += '  <div class="content"><div class="button">Close</div></div>';
+  options.content += '</div>';
+
+  var callback = function() {
+    document.querySelector('.modal .button').addEventListener('click', function() {
+      psModal.close();
+    });
+  };
+
+  psModal.open(options, callback);
+}
+
+function generateRating(rating) {
+  if (rating===undefined) {
+    return 'No Rating Available';
+  }
+  else {
+    var output = '';
+
+    for (var i=1; i < 6; i++) {
+      if (rating >= i) {
+        output+='<i class="fa fa-star"></i>';
+      }
+      else if (rating >= i-.5) {
+        output+='<i class="fa fa-star-half-o"></i>';
+      }
+      else {
+        output+='<i class="fa fa-star-o"></i>';
+      }
+    }
+    output += ' ('+rating+')';
+    return output;
+  }
+}

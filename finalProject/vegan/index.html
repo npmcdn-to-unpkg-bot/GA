@@ -5,9 +5,11 @@
 
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,600,700|Arvo:400,700|Quicksand:400,300,700' rel='stylesheet' type='text/css'>
 
+  <link rel="stylesheet" type="text/css" href="font-awesome-4.6.2/css/font-awesome.min.css">
 
+  <script src="ps-modal/ps-modal.js"></script>
 
-   <link rel="stylesheet" type="text/css" href="font-awesome-4.6.2/css/font-awesome.min.css">
+  <link rel="stylesheet" href="ps-modal/ps-modal.css">
 
 </head>
 <body>
@@ -17,17 +19,15 @@
   <header>
     <h1>BASIL</h1>
     <div class="navContainer">
-      <a href="#section0">Home</a>
-      <a href="#about_wrapper">About</a>
-      <a href="#map_wrapper">Map</a>
-      <a href="#contact_wrapper">Contact</a>
+      <a href="#" id="navAbout">About</a>
+      <a href="#" id="navContact">Contact</a>
     </div>
   </header>
   <div id="mainContent">
     <div id="plannerBox">
       <div id="inputBox">
         <form id="address_form">
-          <input type="text" id="input_value" placeholder="Enter Your Address">
+          <input type="text" id="input_value" placeholder="Enter Your Address...">
           <button id="mapScroll">Submit</button>
         </form>
       </div>
@@ -39,8 +39,8 @@
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <i class="fa fa-star-o"></i>
         </div>
       </div>
     </div>

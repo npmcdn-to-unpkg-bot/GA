@@ -105,6 +105,44 @@ header a:hover {
 #map {
   width: 100%;
 }
-
-
-
+.modal {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 300;
+  padding: 10px;
+}
+.modal .title {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  padding: 20px 0 15px 0;
+}
+.modal .content {
+  padding: 15px;
+}
+.modal .content a {
+  color: #4dbd4d;
+  font-size: 32px;
+  padding: 15px;
+  transition: color 150ms;
+}
+.modal .content a:hover {
+  color: #2d8f2d;
+}
+.modal .button {
+  display: inline-block;
+  background-color: #4dbd4d;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+.modal .button: hover {
+  background-color: #2d8f2d;
+}
