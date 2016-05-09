@@ -61,23 +61,24 @@ function showLocations(results, status) {
 
 //if places are rendering, keep iterating through the array and place marker at location.
 function createMarker(place) {
-
+//create new google maps marker on this page map. The marker icon will be the image specified.
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
     icon: 'img/map_icon.png'
   });
-
+//There is an array of markers and places. This is saying push marker into an array of markers.
   markers.push(marker);
 
+//For every click, iterate through the markers array and insert map_icon.
   google.maps.event.addListener(marker, 'click', function() {
 
     for (var i = 0; i < markers.length; i++) {
       markers[i].setIcon('img/map_icon.png');
     }
-
+//after inital marker icon has been clicked on change into "selected icon" image.
     marker.setIcon('img/map_icon_selected.png');
-
+//place.id is a specific location on the map. Not a generic geocode location.
     var request = {
       placeId: place.place_id
     }
@@ -87,7 +88,7 @@ function createMarker(place) {
   });
 };
 
-
+//details function shows info about each place clicked on. Pulls in first image, or placeholder image if there is restaurant image.
 function populateDetailBox(place, status) {
 
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -98,7 +99,7 @@ function populateDetailBox(place, status) {
     }
 
     $('#detailBox .image').attr('src', imageSrc);
-
+//injects the place name/plae vacinity into the #detailbox element.
     $('#detailBox .title').html(place.name);
     $('#detailBox .address').html(place.vicinity);
     $('#detailBox .rating').html(generateRating(place.rating));
@@ -109,13 +110,8 @@ function populateDetailBox(place, status) {
 }
 
 $(document).ready(function() {
-  //var map_win_height = win.height();
 
-  //setMapWinHeight(map_win_height)
   initMap();
-
-  //console.log("//geocoder within the global is:")
-  //console.log(geocoder);
 
   $('#address_form').on('submit', function(e){
     e.preventDefault();
@@ -127,7 +123,7 @@ $(document).ready(function() {
 
 
 });//closing tag.
-
+//jquery plugin that opens the about/contact windows.
 function initAbout() {
   var options = psModal.getStandardOptions();
 
@@ -164,7 +160,7 @@ function initContact() {
   options.content += '  <div class="content"><a href="https://github.com/SusanSavariar"><i class="fa fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/susansavariar"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a><a href="https://www.instagram.com/ssavariar/"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="mailto:sasavariar@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></div>';
   options.content += '  <div class="content"><div class="button">Close</div></div>';
   options.content += '</div>';
-
+//click listener to close the modal box.
   var callback = function() {
     document.querySelector('.modal .button').addEventListener('click', function() {
       psModal.close();
@@ -173,7 +169,7 @@ function initContact() {
 
   psModal.open(options, callback);
 }
-
+//generate rating function returns "no rating available" if no rating. For loop iterates through ratings. if less than 6 (up to 5) return whole star colored in. else if it ends in .5 return half a star. otherwise return empty star.
 function generateRating(rating) {
   if (rating===undefined) {
     return 'No Rating Available';
