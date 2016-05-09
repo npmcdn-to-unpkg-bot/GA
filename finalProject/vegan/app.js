@@ -6,7 +6,7 @@ var geocoder;
 var markers = [];
 var service;
 
-//creates a new static map. Centers the map on your location input. Scrollwheel false allows you to scroll over the map without changing the zoom/location.
+//creates a new static map. Centers the map on your location input. Scrollwheel false allows you to scroll over the map without changing the zoom/location. PlacesService allows for retreival of information about places from google maps.
 function initMap() {
   geocoder = new google.maps.Geocoder;
   var location = {lat: 40.7127 , lng: -74.0059};
@@ -18,7 +18,7 @@ function initMap() {
   service = new google.maps.places.PlacesService(map);
 };
 
-
+//Turns address into a request object which turns it into a geometry value (latitude and longitude coordinates). Calls the updateMap function as a callback.
 function geocodeAddress() {
 
   var address = $('#input_value').val();
@@ -29,7 +29,7 @@ function geocodeAddress() {
   geocoder.geocode(request, updateMap);
 
 }
-
+//if status is ok then map is centered on geocoder geometry. PlacesService performs the nearby search function taking in the parameters set by request object and the showLocations function is called back.
 function updateMap(results, status) {
 
   if (status === google.maps.GeocoderStatus.OK) {
@@ -48,7 +48,7 @@ function updateMap(results, status) {
   }
 
 }
-
+//if status is ok then we iterate through the places array and create marker for each place.
 function showLocations(results, status) {
 
   if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -56,39 +56,37 @@ function showLocations(results, status) {
       createMarker(results[i]);
     }
   }
-
-};
-
-//if places are rendering, keep iterating through the array and place marker at location.
+}
+//create new google maps marker on the map. The marker icon will be the image specified.
 function createMarker(place) {
-//create new google maps marker on this page map. The marker icon will be the image specified.
+
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
     icon: 'img/map_icon.png'
   });
-//There is an array of markers and places. This is saying push marker into an array of markers.
+//There is an array of markers and places. This is saying push marker into the array of markers to keep track of for resetting markers at later point.
   markers.push(marker);
 
-//For every click, iterate through the markers array and insert map_icon.
+//add click listener to each marker to update details information.
   google.maps.event.addListener(marker, 'click', function() {
-
+//For every click, iterate through the markers array and reset the icon to original green icon for every marker. This ensures only the last selected icon will be gray.
     for (var i = 0; i < markers.length; i++) {
       markers[i].setIcon('img/map_icon.png');
     }
-//after inital marker icon has been clicked on change into "selected icon" image.
+//Set clicked marker to selected gray icon
     marker.setIcon('img/map_icon_selected.png');
 //place.id is a specific location on the map. Not a generic geocode location.
     var request = {
       placeId: place.place_id
     }
-
+//places service takes in request object containing place id and returns detailed information about that place, populateDetailBox is called back after information is retrieved.
     service.getDetails(request, populateDetailBox);
 
   });
 };
 
-//details function shows info about each place clicked on. Pulls in first image, or placeholder image if there is restaurant image.
+//details function shows info about each place clicked on. Pulls in first image, or placeholder image if there is no restaurant image.
 function populateDetailBox(place, status) {
 
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -99,7 +97,7 @@ function populateDetailBox(place, status) {
     }
 
     $('#detailBox .image').attr('src', imageSrc);
-//injects the place name/plae vacinity into the #detailbox element.
+//injects the place name/place vicinity into the #detailbox element and generates a rating.
     $('#detailBox .title').html(place.name);
     $('#detailBox .address').html(place.vicinity);
     $('#detailBox .rating').html(generateRating(place.rating));
@@ -108,22 +106,30 @@ function populateDetailBox(place, status) {
     alert('Request Unsuccessful. Status: '+ status);
   }
 }
+//generate rating function returns "no rating available" if no rating. For loop iterates through ratings. if less than integer increment (up to 5) return whole star. else if it is greater than .5 less than integer increment return half a star. otherwise return empty star.
+function generateRating(rating) {
+  if (rating===undefined) {
+    return 'No Rating Available';
+  }
+  else {
+    var output = '';
 
-$(document).ready(function() {
-
-  initMap();
-
-  $('#address_form').on('submit', function(e){
-    e.preventDefault();
-    geocodeAddress();
-  });
-
-  $('#navAbout').click(initAbout);
-  $('#navContact').click(initContact);
-
-
-});//closing tag.
-//jquery plugin that opens the about/contact windows.
+    for (var i=1; i < 6; i++) {
+      if (rating >= i) {
+        output+='<i class="fa fa-star"></i>';
+      }
+      else if (rating >= i-.5) {
+        output+='<i class="fa fa-star-half-o"></i>';
+      }
+      else {
+        output+='<i class="fa fa-star-o"></i>';
+      }
+    }
+    output += ' ('+rating+')';
+    return output;
+  }
+}
+//Plugin that opens the about/contact windows.
 function initAbout() {
   var options = psModal.getStandardOptions();
 
@@ -169,26 +175,18 @@ function initContact() {
 
   psModal.open(options, callback);
 }
-//generate rating function returns "no rating available" if no rating. For loop iterates through ratings. if less than 6 (up to 5) return whole star colored in. else if it ends in .5 return half a star. otherwise return empty star.
-function generateRating(rating) {
-  if (rating===undefined) {
-    return 'No Rating Available';
-  }
-  else {
-    var output = '';
 
-    for (var i=1; i < 6; i++) {
-      if (rating >= i) {
-        output+='<i class="fa fa-star"></i>';
-      }
-      else if (rating >= i-.5) {
-        output+='<i class="fa fa-star-half-o"></i>';
-      }
-      else {
-        output+='<i class="fa fa-star-o"></i>';
-      }
-    }
-    output += ' ('+rating+')';
-    return output;
-  }
-}
+$(document).ready(function() {
+//initializes map
+  initMap();
+//add click listener on submit/click
+  $('#address_form').on('submit', function(e){
+    e.preventDefault();
+    geocodeAddress();
+  });
+//add click function on about and contact buttons in the nav.
+  $('#navAbout').click(initAbout);
+  $('#navContact').click(initContact);
+
+
+});//closing tag.
